@@ -19,11 +19,11 @@
   min-block-size: 100dvb;
   padding-block-start: 100px;
   font-family: var(--main-font-family);
-  font-variation-settings: "wght" var(--main-font-family, 400);
+  font-variation-settings: "wght" var(--card-text-weight);
   background-color: var(--background-page-color);
   color: var(--accent-page-color);
   background-image: var(--background-image);
-  background-position: cover;
+  background-size: cover;
   background-attachment: fixed;
 }
 
@@ -33,6 +33,7 @@
   justify-content: center;
   font-family: var(--sub-font-family);
   text-transform: uppercase;
+  margin-block-end: 100px;
 }
 
 .card {
@@ -43,30 +44,29 @@
   max-inline-size: 696px;
 }
 
-.header_title {
+.header_subtitle {
   font-size: clamp(3.063rem, 2.71rem + 1.5vw, 4.063rem);
   padding-block-start: clamp(7.5rem, 7.148rem + 1.5vw, 8.5rem);
   display: flex;
   justify-content: center;
 }
 
-.header_subtitle {
+.header_title {
   font-size: clamp(0.875rem, 0.677rem + 0.85vw, 1.438rem);
   display: flex;
   justify-content: center;
   padding-block-start: 20px;
 }
 
+/* стили кнопок nav */
 .header__theme-menu {
   margin-block: 25px;
 }
 
-/* стили кнопок nav */
 .theme-menu__list {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   padding-inline-start: 20px;
-  justify-content: center;
 }
 
 .theme-menu__button {
@@ -80,15 +80,17 @@
   appearance: none;
 }
 
-.theme-menu__button:not(:disabled)::after {
-  content: "";
-  display: block;
-  background: currentColor;
-  transition: transform 0.3s ease;
-  transform: scaleX(0);
-  transform-origin: left;
+.theme-menu__button::after {
+  position: absolute;
+  content: '';
   inline-size: 100%;
   block-size: 2px;
+  inset-inline-start: 0;
+  inset-block-end: -3px;
+  background-color: var(--accent-page-color);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 .theme-menu__button:hover {
@@ -99,6 +101,7 @@
   outline: none;
   opacity: 0.6;
 }
+
 
 .theme-menu__button:focus-visible::after {
   transform: scaleX(1);
@@ -113,9 +116,8 @@
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
-  display: inline-block;
   animation: arrow 0.5s ease-in-out infinite alternate;
-  inset-inline-start: -15px;
+  inset-inline-start: -20px;
   inset-block-start: 0px;
 }
 /* стили кнопок nav */
@@ -125,8 +127,7 @@
   display: grid;
   justify-items: center;
   gap: 57px;
-  padding-block-start: 100px;
-  padding-block-end: 50px;
+  padding-block-end: 103px;
 }
 
 /* cписок карточек */
@@ -150,12 +151,13 @@
 .title_card {
   font-size: 18px;
   line-height: normal;
-  font-variation-settings: "wght" 700;
+  font-variation-settings: "wght" var(--card-title-weight);
 }
 
 /* заголовок карточки */
 .card_content {
   position: relative;
+  overflow: hidden;
 }
 /* заголовок карточки */
 
@@ -300,7 +302,7 @@
 /* иконка с сердцем */
 
 
-.footer {
+.save-button {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -334,7 +336,8 @@
   line-height: 1.5;
   text-transform: uppercase;
   background: var(--background-page-color);
-  max-inline-size: 355px;
+  max-inline-size: 353px;
+  overflow: hidden;
 }
 
 .modal[open] {
@@ -367,40 +370,37 @@
 
 
 /* классы для фильтров */
-.boat-on-water {
+.filter-brightness {
   filter: brightness(2);
 }
 
-.curved-design-image {
+.filter-blur {
   filter: blur(5px);
 }
 
-.horses-mountain {
+.filter-sepia {
   filter: sepia(100%);
 }
 
-.boat-canal {
+.filter-grayscale {
   filter: grayscale(100%);
 }
 
-.large-library {
+.filter-saturate {
   filter: saturate(200%);
 }
 
-.surfboards-sand {
-  filter: saturate(200%);
-}
-
-.boy-with-book {
+.filter-invert {
   filter: invert(100%);
 }
 
-.boat-island {
+.filter-mix-b-c-g {
   filter: brightness(120%) contrast(90%) grayscale(50%);
 }
 /* классы для фильтров */
 
 @media (width <= 375px) {
+
   .modal {
     padding: 28px 34px 28px 40px;
     max-inline-size: 340px;

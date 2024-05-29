@@ -1,7 +1,9 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
   --main-font-family: "Inter", sans-serif;
-  --sub-font-family: "PressStart2P", sans-serif;
+  --sub-font-family: "PressStart2P", fantasy;
+
+  --card-title-weight: 700;
 
   --background-page-color: rgba(255, 255, 255, 1);
   --accent-page-color: rgba(0, 0, 0, 1);
@@ -20,4 +22,5 @@
 --heart-main-body-color: none;
 --heart-sparks-color: rgba(255, 0, 0, 1);
 /* цвета для иконки сердца */
+
 }
